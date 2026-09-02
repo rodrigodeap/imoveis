@@ -68,18 +68,6 @@
       color: #0b0e12;
     }
     
-    .btn-whatsapp {
-      background: linear-gradient(145deg, #1a3a4a, #0f2a3a);
-      border: 1px solid #2a7a8f;
-      transition: all 0.3s ease;
-    }
-    .btn-whatsapp:hover {
-      background: linear-gradient(145deg, #2a6a7a, #1a4a5a);
-      border-color: #4aaac4;
-      box-shadow: 0 0 30px rgba(0, 200, 240, 0.15);
-      transform: scale(1.02);
-    }
-    
     /* === CARDS === */
     .service-card {
       background: rgba(18, 24, 28, 0.8);
@@ -88,22 +76,6 @@
       transition: all 0.4s cubic-bezier(0.2, 0.9, 0.3, 1.1);
       position: relative;
       overflow: hidden;
-    }
-    .service-card::before {
-      content: '';
-      position: absolute;
-      top: -1px;
-      left: -1px;
-      right: -1px;
-      bottom: -1px;
-      border-radius: 24px;
-      background: linear-gradient(135deg, rgba(42, 107, 143, 0.1), transparent, rgba(74, 168, 212, 0.05));
-      z-index: -1;
-      opacity: 0;
-      transition: opacity 0.5s ease;
-    }
-    .service-card:hover::before {
-      opacity: 1;
     }
     .service-card:hover {
       transform: translateY(-8px);
@@ -121,10 +93,6 @@
       justify-content: center;
       transition: all 0.3s ease;
     }
-    .service-card:hover .icon-wrapper {
-      background: rgba(59, 130, 246, 0.12);
-      box-shadow: 0 0 30px rgba(0, 150, 220, 0.03);
-    }
     .service-card .icon-wrapper i {
       font-size: 1.5rem;
       color: #4aa8d4;
@@ -135,14 +103,6 @@
       background: linear-gradient(180deg, #0a0e14 0%, #0b0e12 50%, #0c1015 100%);
       position: relative;
       overflow: hidden;
-    }
-    .hero-section::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgdmlld0JveD0iMCAwIDYwIDYwIj48cGF0aCBkPSJNMzAgMTBhMjAgMjAgMCAwIDEgMjAgMjAgMjAgMjAgMCAwIDEtNDAgMCAyMCAyMCAwIDAgMSAyMC0yMHoiIGZpbGw9InJnYmEoNzQsMTY4LDIxMiwwLjAyKSIvPjwvc3ZnPg==');
-      opacity: 0.5;
-      pointer-events: none;
     }
     
     .hero-badge {
@@ -164,7 +124,6 @@
     }
     .light-section .text-gray-dark { color: #1a1a1a; }
     .light-section .text-gray-medium { color: #4a4a4a; }
-    .light-section .text-gray-light { color: #6b6b6b; }
     
     .check-item {
       display: flex;
@@ -181,6 +140,28 @@
       text-align: center;
     }
     
+    /* === IMAGEM DA SEÇÃO RISCO === */
+    .risk-image-container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1px solid rgba(0, 0, 0, 0.06);
+      box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.08);
+      transition: all 0.5s ease;
+    }
+    .risk-image-container:hover {
+      transform: scale(1.01);
+      box-shadow: 0 20px 60px -10px rgba(0, 0, 0, 0.12);
+    }
+    .risk-image-container img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+    }
+    
     /* === AUTORIDADE === */
     .authority-section {
       background: #0c1015;
@@ -193,16 +174,23 @@
       box-shadow: 0 20px 60px -15px rgba(0, 0, 0, 0.6);
       transition: all 0.5s ease;
     }
-    .authority-image:hover {
-      transform: scale(1.01);
-      border-color: rgba(74, 168, 212, 0.2);
-      box-shadow: 0 30px 80px -15px rgba(59, 130, 246, 0.05);
-    }
     
     /* === CONVERSÃO FINAL === */
     .cta-section {
       background: linear-gradient(145deg, #0a0e14, #0c1015);
       border-top: 1px solid rgba(52, 152, 219, 0.06);
+    }
+    
+    /* === RODAPÉ === */
+    .footer-image {
+      height: 40px;
+      width: auto;
+      object-fit: contain;
+      opacity: 0.6;
+      transition: all 0.3s ease;
+    }
+    .footer-image:hover {
+      opacity: 1;
     }
     
     /* === SCROLL === */
@@ -212,9 +200,9 @@
     
     /* === RESPONSIVIDADE === */
     @media (max-width: 640px) {
-      .hero-headline { font-size: 2.5rem; }
-      .authority-image { max-width: 280px; }
       .logo-img { height: 32px; }
+      .authority-image { max-width: 280px; }
+      .risk-image-container { border-radius: 12px; }
     }
     
     /* === DIVIDER === */
@@ -247,9 +235,8 @@
   <!-- ===== MENU FIXO COM LOGO ===== -->
   <nav class="glass-nav fixed top-0 left-0 w-full z-50 px-6 md:px-12 py-3 flex items-center justify-between">
     <div class="flex items-center gap-3">
-      <!-- LOGO - Substitua "logo-assisgroup.png" pelo nome da sua imagem -->
       <img 
-        src="logo-assisgroup.png" 
+        src="assets/images/logo-assisgroup.png" 
         alt="Assis Group - Segurança Patrimonial e Imóveis" 
         class="logo-img"
         onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22150%22 height=%2240%22 viewBox=%220 0 150 40%22%3E%3Ctext x=%225%22 y=%2228%22 font-family=%22Inter, sans-serif%22 font-weight=%22800%22 font-size=%2220%22 fill=%22%234aa8d4%22%3EAssis%3C/text%3E%3Ctext x=%2280%22 y=%2228%22 font-family=%22Inter, sans-serif%22 font-weight=%22300%22 font-size=%2216%22 fill=%22%238a9aa8%22%3EGroup%3C/text%3E%3C/svg%3E'"
@@ -303,7 +290,7 @@
 
   <div class="section-divider"></div>
 
-  <!-- ===== 2. SEÇÃO DE DOR & RISCO ===== -->
+  <!-- ===== 2. SEÇÃO DE DOR & RISCO COM IMAGEM ===== -->
   <section id="dor" class="py-24 px-6 md:px-12 light-section">
     <div class="max-w-5xl mx-auto text-center">
       <span class="text-blue-600 text-sm font-semibold tracking-widest uppercase border border-blue-200/50 px-4 py-1 rounded-full inline-block">O risco silencioso</span>
@@ -311,6 +298,16 @@
       <p class="text-lg md:text-xl text-gray-medium max-w-3xl mx-auto mt-4 leading-relaxed">
         Contratos frágeis, vacância prolongada e avaliações desatualizadas corroem a rentabilidade e expõem seus bens a litígios. A verdadeira segurança exige inteligência de mercado e rigor jurídico.
       </p>
+      
+      <!-- IMAGEM DA SEÇÃO RISCO - 1920x1080px -->
+      <div class="risk-image-container mt-8">
+        <img 
+          src="assets/images/risk-silencioso.jpg" 
+          alt="Risco silencioso na gestão imobiliária - Assis Group" 
+          class="w-full h-auto"
+          onerror="this.style.display='none'"
+        >
+      </div>
       
       <div class="max-w-2xl mx-auto mt-10 text-left">
         <div class="bg-white/50 rounded-2xl p-6 md:p-8 border border-gray-200/30 shadow-sm">
@@ -344,7 +341,6 @@
       
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
         
-        <!-- Card 1 -->
         <div class="service-card p-6 flex flex-col h-full">
           <div class="icon-wrapper mb-4">
             <i class="fas fa-building"></i>
@@ -353,7 +349,6 @@
           <p class="text-gray-400 text-sm leading-relaxed flex-grow">Gestão de ponta a ponta, garantindo o fluxo de caixa, manutenção preventiva e relacionamento blindado com locatários.</p>
         </div>
         
-        <!-- Card 2 -->
         <div class="service-card p-6 flex flex-col h-full">
           <div class="icon-wrapper mb-4">
             <i class="fas fa-file-alt"></i>
@@ -362,7 +357,6 @@
           <p class="text-gray-400 text-sm leading-relaxed flex-grow">Avaliação técnica precisa e fundamentada para assegurar a exatidão financeira na ponta vendedora, locadora ou em disputas judiciais.</p>
         </div>
         
-        <!-- Card 3 -->
         <div class="service-card p-6 flex flex-col h-full">
           <div class="icon-wrapper mb-4">
             <i class="fas fa-handshake"></i>
@@ -371,7 +365,6 @@
           <p class="text-gray-400 text-sm leading-relaxed flex-grow">Posicionamento mercadológico do seu imóvel para atrair investidores, compradores e inquilinos altamente qualificados.</p>
         </div>
         
-        <!-- Card 4 -->
         <div class="service-card p-6 flex flex-col h-full">
           <div class="icon-wrapper mb-4">
             <i class="fas fa-gavel"></i>
@@ -392,14 +385,12 @@
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
         
         <div class="flex justify-center lg:justify-start">
-          <div class="authority-image">
-            <div class="w-full aspect-square rounded-2xl bg-gradient-to-br from-blue-900/20 to-transparent border border-blue-700/20 flex items-center justify-center backdrop-blur-sm">
-              <div class="text-center">
-                <i class="fas fa-user-tie text-blue-400/20 text-6xl"></i>
-                <p class="text-blue-400/20 text-sm mt-2 font-light">Assis Group</p>
-              </div>
-            </div>
-          </div>
+          <img 
+            src="assets/images/authority-profile.jpg" 
+            alt="Assis Group - Equipe" 
+            class="authority-image"
+            onerror="this.style.display='none'"
+          >
         </div>
         
         <div class="space-y-6">
@@ -439,6 +430,12 @@
       </div>
       
       <div class="mt-8 pt-8 border-t border-blue-900/10 text-xs text-gray-500">
+        <img 
+          src="assets/images/footer-selo.png" 
+          alt="Selo de confiança" 
+          class="footer-image mx-auto mb-2"
+          onerror="this.style.display='none'"
+        >
         <p>Assis Group · Segurança Patrimonial e Imóveis</p>
         <p class="mt-1">CNPJ: 63.189.436/0001-90</p>
       </div>
@@ -452,7 +449,7 @@
 
   <!-- ===== JS ===== -->
   <script>
-    // Smooth Scroll para links internos
+    // Smooth Scroll
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function(e) {
         e.preventDefault();
@@ -475,7 +472,7 @@
       }
     });
 
-    // FADE-IN-UP com Intersection Observer
+    // FADE-IN-UP
     document.addEventListener('DOMContentLoaded', function() {
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
